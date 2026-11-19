@@ -1,0 +1,118 @@
+
+### TEST 1: Successful registration
+POST http://localhost:5000/api/users
+Content-Type: application/json
+
+{
+    "name": "Test Student",
+    "email": "student1@example.com",
+    "password": "Student123"
+}
+
+###
+
+### TEST 2: Missing required fields
+POST http://localhost:5000/api/users
+Content-Type: application/json
+
+{
+    "name": "Test Student"
+}
+
+###
+
+### TEST 3: Invalid email
+POST http://localhost:5000/api/users
+Content-Type: application/json
+
+{
+    "name": "Test Student",
+    "email": "invalid-email",
+    "password": "Student123"
+}
+
+###
+
+### TEST 4: Password shorter than 8 characters
+POST http://localhost:5000/api/users
+Content-Type: application/json
+
+{
+    "name": "Test Student",
+    "email": "student2@example.com",
+    "password": "12345"
+}
+
+###
+
+### TEST 5: Duplicate email
+POST http://localhost:5000/api/users
+Content-Type: application/json
+
+{
+    "name": "Another Student",
+    "email": "student1@example.com",
+    "password": "Another123"
+}
+
+### TEST 6: Get all users
+GET http://localhost:5000/api/users
+
+###
+
+### TEST 7: Create a dedicated CRUD test user
+POST http://localhost:5000/api/users
+Content-Type: application/json
+
+{
+    "name": "CRUD Test Student",
+    "email": "crud.student.step6@example.com",
+    "password": "CrudTest123"
+}
+
+###
+
+### TEST 8: Get one user by ID
+GET http://localhost:5000/api/users/1
+
+###
+
+### TEST 9: Get user with invalid ID
+GET http://localhost:5000/api/users/abc
+
+###
+
+### TEST 10: Get user that does not exist
+GET http://localhost:5000/api/users/999999
+
+###
+
+### TEST 11: Update user
+PUT http://localhost:5000/api/users/1
+Content-Type: application/json
+
+{
+    "name": "Updated CRUD Student",
+    "email": "crud.student.updated.step6@example.com"
+}
+
+###
+
+### TEST 12: Update with invalid email
+PUT http://localhost:5000/api/users/1
+Content-Type: application/json
+
+{
+    "name": "Updated CRUD Student",
+    "email": "invalid-email"
+}
+
+###
+
+### TEST 13: Delete user
+DELETE http://localhost:5000/api/users/1
+
+###
+
+### TEST 14: Get deleted user
+GET http://localhost:5000/api/users/1

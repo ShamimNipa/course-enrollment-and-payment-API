@@ -1,0 +1,52 @@
+### TEST 1: Enroll in a course
+POST http://localhost:5000/api/enrollments
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0IiwiaWF0IjoxNzk1MDQwNzMxLCJleHAiOjE3OTUxMjcxMzF9.Vzi2bWWoqsL5962CjSuCos0i0poDGg6G_kySM46DN8k
+
+{
+  "courseid": 1
+}
+
+### TEST 2: Duplicate enrollment
+POST http://localhost:5000/api/enrollments
+Content-Type: application/json
+Authorization: Bearer YOUR_VALID_TOKEN
+
+{
+  "courseid": 1
+}
+
+### TEST 3: Nonexistent course
+POST http://localhost:5000/api/enrollments
+Content-Type: application/json
+Authorization: Bearer YOUR_VALID_TOKEN
+
+{
+  "courseid": 99999
+}
+
+### TEST 4: Missing courseid
+POST http://localhost:5000/api/enrollments
+Content-Type: application/json
+Authorization: Bearer YOUR_VALID_TOKEN
+
+{}
+### TEST 5: Get my enrollments
+GET http://localhost:5000/api/enrollments/my
+Authorization: Bearer YOUR_VALID_TOKEN
+
+### TEST 6: Get enrollment by ID
+GET http://localhost:5000/api/enrollments/1
+Authorization: Bearer YOUR_VALID_TOKEN
+### TEST 7: Access another user's enrollment
+GET http://localhost:5000/api/enrollments/99999
+Authorization: Bearer YOUR_VALID_TOKEN
+### TEST 8: Cancel enrollment
+DELETE http://localhost:5000/api/enrollments/1
+Authorization: Bearer YOUR_VALID_TOKEN
+### TEST 9: Cancel already-cancelled enrollment
+DELETE http://localhost:5000/api/enrollments/1
+Authorization: Bearer YOUR_VALID_TOKEN
+
+### TEST 10: No token
+GET http://localhost:5000/api/enrollments/my

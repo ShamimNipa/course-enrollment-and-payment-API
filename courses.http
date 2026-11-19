@@ -1,0 +1,40 @@
+
+@baseUrl = http://localhost:5000/api
+@courseId = 1
+
+### TEST 1: CREATE COURSE
+POST {{baseUrl}}/courses
+Content-Type: application/json
+
+{
+  "title": "Full Stack Web Development",
+  "description": "Learn Node.js, Express, PostgreSQL and React.",
+  "price": 2500,
+  "status": "published"
+}
+
+### TEST 2: GET ALL COURSES
+GET {{baseUrl}}/courses
+
+### TEST 3: GET COURSE BY ID
+GET {{baseUrl}}/courses/{{courseId}}
+
+### TEST 4: UPDATE COURSE
+PUT {{baseUrl}}/courses/{{courseId}}
+Content-Type: application/json
+
+{
+  "title": "Advanced Full Stack Development",
+  "description": "Learn backend and frontend development.",
+  "price": 3500,
+  "status": "published"
+}
+
+### TEST 5: DELETE COURSE
+DELETE {{baseUrl}}/courses/{{courseId}}
+
+### TEST 6: INVALID COURSE ID
+GET {{baseUrl}}/courses/abc
+
+### TEST 7: NON-EXISTENT COURSE
+GET {{baseUrl}}/courses/999999

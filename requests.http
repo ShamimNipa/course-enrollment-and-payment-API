@@ -1,0 +1,21 @@
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "student1@example.com",
+    "password": "Student123"
+}
+
+
+### Initiate Payment
+POST http://localhost:5000/api/payments/initiate
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0IiwiaWF0IjoxNzk1MDQwNzMxLCJleHAiOjE3OTUxMjcxMzF9.Vzi2bWWoqsL5962CjSuCos0i0poDGg6G_kySM46DN8k
+
+{
+  "enrollmentId": 1
+}
+
+### Complete Mock Payment
+POST http://localhost:5000/api/payments/1/mock-success
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0IiwiaWF0IjoxNzk1MDQwNzMxLCJleHAiOjE3OTUxMjcxMzF9.Vzi2bWWoqsL5962CjSuCos0i0poDGg6G_kySM46DN8k

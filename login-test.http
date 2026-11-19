@@ -1,0 +1,15 @@
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "student1@example.com",
+    "password": "Student123"
+}
+### TEST: Enroll in course
+POST http://localhost:5000/api/enrollments
+Content-Type: application/json
+Authorization: Bearer PASTE_YOUR_TOKEN_HERE
+
+{
+  "courseid": 1
+}
